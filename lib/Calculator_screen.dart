@@ -13,6 +13,8 @@ class _CalculatorState extends State<Calculator> {
     'AC',
     ')',
     '(',
+    '7',
+    '8',
   ];
 
 
