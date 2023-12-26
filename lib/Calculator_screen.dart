@@ -1,4 +1,5 @@
-// ignore: file_names
+
+
 import 'package:flutter/material.dart';
 
 class Calculator extends StatefulWidget{
@@ -41,23 +42,59 @@ class _CalculatorState extends State<Calculator> {
   Widget build(BuildContext context){
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Column(children: [
+      body: Column(
+        
+        children: [
         SizedBox(height: MediaQuery.of(context).size.height / 3,
-        child: Column(children: [
+        child: Column(mainAxisAlignment: MainAxisAlignment.end,children: [
           Container(
             padding: const EdgeInsets.all(20),
             alignment: Alignment.centerRight,
             child: const Text(
-              "Input",
+              "UserInput",
               style: TextStyle(
                 fontSize: 32,
                 color: Color.fromARGB(255, 248, 248, 248),
               ),
             ),
-          )
+          ),
+          Container(
+            padding: const EdgeInsets.all(10),
+            alignment: Alignment.centerRight,
+            child: const Text(
+              "result",
+              style: TextStyle(
+                fontSize: 48,
+                color: Color.fromARGB(255, 248, 248, 248),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ]),
-        )
+        ),
+        const Divider(color: Color.fromARGB(255, 251, 250, 250)),
+        Expanded(child: Container(
+          padding: const EdgeInsets.all(10),
+          child: GridView.builder(
+            itemCount: buttonList.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4, 
+              crossAxisSpacing: 12,
+               mainAxisSpacing: 12,), itemBuilder:( BuildContext context, int index){
+              return CustomButton(buttonList[index]);
+            },
+        )))
       ],),
     );
   }
+ 
+  // ignore: non_constant_identifier_names
+  Widget CustomButton(String Text){
+    return InkWell(
+      splashColor: const Color(0xFF1d2630),
+      onTap: (){},
+    );
   }
+  }
+  
+ 
